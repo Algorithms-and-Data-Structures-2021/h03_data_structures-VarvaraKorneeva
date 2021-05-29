@@ -5,11 +5,16 @@
 namespace itis {
 
 void LinkedDequeue::Enqueue(Element e) {
-  // TODO: напишите здесь свой код ...
+  SinglyNode *node = new SinglyNode(e, nullptr);
+  back_->next = node;
+  back_ = node;
+  size_++;
 }
 
 void LinkedDequeue::EnqueueFront(Element e) {
-  // TODO: напишите здесь свой код ...
+  SinglyNode *node = new SinglyNode(e, &front_);
+  front_ = node;
+  size_++;
 }
 
 void LinkedDequeue::Dequeue() {
@@ -17,7 +22,10 @@ void LinkedDequeue::Dequeue() {
     throw std::logic_error("cannot not dequeue from empty queue");
   }
 
-  // TODO: напишите здесь свой код ...
+  auto curr = front_->next;
+  front_->next = nullptr;
+  front_ = curr;
+  size_--;
 }
 
 void LinkedDequeue::DequeueBack() {
@@ -25,11 +33,21 @@ void LinkedDequeue::DequeueBack() {
     throw std::logic_error("cannot not dequeue from empty queue");
   }
 
-  // TODO: напишите здесь свой код ...
+  auto node = queue.front_;
+  for(auto curr = queue.front_; curr != back_; curr = curr->next){
+      node = curr;
+  }
+  curr->next = nullptr;
+  back_ = node;
+  size_--;
 }
 
 void LinkedDequeue::Clear() {
-  // TODO: напишите здесь свой код ...
+  auto curr1 = queue.front_;
+  for(auto curr2 = queue.front_->next; curr2 != nullptr; curr2 = curr2->next){
+      urr1->next = nullptr;
+      curr1->curr2;
+  }
 }
 
 // === РЕАЛИЗОВАНО ===

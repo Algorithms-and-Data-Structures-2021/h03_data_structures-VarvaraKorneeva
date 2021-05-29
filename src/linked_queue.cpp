@@ -5,7 +5,10 @@
 namespace itis {
 
 void LinkedQueue::Enqueue(Element e) {
-  // TODO: напишите здесь свой код ...
+  SinglyNode *node = new SinglyNode(e, nullptr);
+  back_->next = node;
+  back_ = node;
+  size_++;
 }
 
 void LinkedQueue::Dequeue() {
@@ -13,11 +16,18 @@ void LinkedQueue::Dequeue() {
     throw std::logic_error("could not dequeue from empty queue");
   }
 
-  // TODO: напишите здесь свой код ...
+  auto curr = front_->next;
+  front_->next = nullptr;
+  front_ = curr;
+  size_--;
 }
 
 void LinkedQueue::Clear() {
-  // TODO: напишите здесь свой код ...
+  auto curr1 = queue.front_;
+  for(auto curr2 = queue.front_->next; curr2 != nullptr; curr2 = curr2->next){
+      curr1->next = nullptr;
+      curr1->curr2;
+  }
 }
 
 // === РЕАЛИЗОВАНО ===
