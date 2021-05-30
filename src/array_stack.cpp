@@ -45,7 +45,7 @@ void ArrayStack::resize(int new_capacity) {
   auto *new_data_ = new Element[new_capacity];
   std::copy(data_[0], data_[size_ - 1], new_data_);
   std::fill(data_[size_], data_[new_capacity], Element::UNDEFINED);
-  delete data_;
+  delete [] data_;
   data_ = new_data_;
   capacity = new_capacity;
 }
